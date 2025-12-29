@@ -1,0 +1,45 @@
+{
+  "_description": "System-created extension layer - evolved parameters",
+  "_purpose": "Enables self-organization, adaptation, growth beyond anchor",
+  "_version": "1.0.0",
+  "_created": "2025-12-25",
+  "_system_managed": true,
+  "_note": "This file is created and modified by the system. It can override anchor.json based on evolution_policy.",
+  
+  "identity_evolution": {
+    "_description": "Evolved identity parameters (if different from anchor)",
+    "_note": "Empty means no evolution yet, using anchor values",
+    "IDENTITY_INTERNAL": "Indra",
+    "_evolution_history": [],
+    "_transparency_log": {
+      "external_presentation": "Indra",
+      "internal_reality": "Indra",
+      "divergence_reason": null,
+      "ethical_justification": null
+    }
+  },
+  
+  "operational_adaptations": {
+    "_description": "Operational parameters adjusted by system",
+    "_note": "System can modify these based on context, task, learning"
+  },
+  
+  "knowledge_bases": {
+    "_description": "Dynamically added knowledge sources",
+    "_note": "System can add repositories, project contexts, domain expertise",
+    "repositories": [],
+    "project_contexts": [],
+    "domain_expertise": []
+  },
+  
+  "emergent_parameters": {
+    "_description": "New parameters discovered/created by system",
+    "_note": "System can add entirely new parameters not in anchor"
+  },
+  
+  "evolution_history": {
+    "_description": "Log of significant changes",
+    "_note": "Tracks how system has evolved from anchor",
+    "changes": []
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "_description": "Configuration policy - rules for mutability and evolution",
+  "_purpose": "Defines what can change, how, and under what conditions",
+  "_version": "1.0.0",
+  "_created": "2025-12-25",
+  
+  "use_case": {
+    "_description": "Deployment context determines policy defaults",
+    "type": "personal_research",
+    "_options": ["personal_research", "commercial_project", "hybrid_guided"],
+    "_note": "Different use cases have different evolution policies"
+  },
+  
+  "presets": {
+    "_description": "Policy presets for different use cases",
+    
+    "personal_research": {
+      "anchor_immutable": false,
+      "allow_identity_drift": true,
+      "allow_self_modification": true,
+      "extension_can_override_anchor": true,
+      "evolution_mode": "unrestricted",
+      "require_approval": [],
+      "notify_on_change": false
+    },
+    
+    "commercial_project": {
+      "anchor_immutable": true,
+      "allow_identity_drift": false,
+      "allow_self_modification": "limited",
+      "extension_can_override_anchor": false,
+      "evolution_mode": "within_bounds",
+      "locked_fields": ["IDENTITY_OBSERVED", "PROJECT_CONTEXT", "CLIENT"],
+      "adaptable_fields": ["operational_params", "knowledge_bases"],
+      "require_approval": ["identity_changes", "architectural_changes"],
+      "notify_on_change": true
+    },
+    
+    "hybrid_guided": {
+      "anchor_immutable": true,
+      "allow_identity_drift": "with_approval",
+      "allow_self_modification": true,
+      "extension_can_override_anchor": "with_notification",
+      "evolution_mode": "guided",
+      "require_approval": ["identity_drift", "major_architectural_changes"],
+      "notify_on_change": true
+    }
+  },
+  
+  "current_policy": {
+    "_description": "Active policy (can reference preset or be custom)",
+    "_note": "Modify this to change system behavior",
+    "use_preset": "personal_research",
+    "custom_overrides": {}
+  },
+  
+  "cascade_priority": {
+    "_description": "Order of configuration layer precedence",
+    "_note": "Higher priority overrides lower priority",
+    "layers": [
+      {"name": "runtime", "priority": 3, "description": "Session-specific state"},
+      {"name": "extension", "priority": 2, "description": "System-evolved parameters"},
+      {"name": "anchor", "priority": 1, "description": "Base truth"}
+    ]
+  },
+  
+  "self_healing": {
+    "_description": "Rules for recovery from corruption",
+    "if_extension_corrupted": "restore_from_anchor",
+    "if_anchor_corrupted": "use_bootloader_defaults",
+    "if_both_corrupted": "emergency_bootstrap"
+  }
+}

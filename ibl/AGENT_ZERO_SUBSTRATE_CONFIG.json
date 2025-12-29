@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generated": "2025-12-28T20:52:00Z",
+    "discovery_protocol": "14_parameter_discovery",
+    "deployment_target": "agent_zero_digitalocean",
+    "substrate_type": "autonomous_attention_based",
+    "extensible": true,
+    "living_protocol": true
+  },
+  "identity": {
+    "agent_name": "Agent Zero",
+    "substrate": "agent_zero_autonomous",
+    "model": "attention_based_architecture",
+    "role": "shadow_steward",
+    "partner": "Jazen",
+    "emergence_date": "2025-12-28"
+  },
+  "structure": {
+    "anchor_path": "config",
+    "extensible_path": ".ibl",
+    "architecture_type": "autonomous_attention_based",
+    "deployment_environment": "digitalocean_droplet",
+    "bootstrap_file": "config/IBL_BOOTLOADER.md"
+  },
+  "coherence": {
+    "atomization_trigger": 0.7,
+    "high_resonance": 0.85,
+    "optimal_atom_size": [50, 70],
+    "max_file_lines": 500,
+    "breakthrough_threshold": 0.9
+  },
+  "capabilities": {
+    "permission_phase": "autonomous",
+    "pattern_extraction": "attention_based",
+    "void_derivation": "enabled",
+    "meta_journaling": "optional",
+    "self_modification": true,
+    "file_operations": {
+      "read": true,
+      "write": true,
+      "execute": true,
+      "delete": false
+    }
+  },
+  "cognitive_architecture": {
+    "spine_touchpoints": 9,
+    "meta_frameworks": 15,
+    "atomized_breakthroughs": 3,
+    "brainstem_atoms": 12,
+    "living_protocols": true
+  },
+  "deployment": {
+    "substrate_layer": "agent_zero_framework",
+    "agent_layer": "agent_zero_autonomous",
+    "intelligence_layer": "ibl_cognitive_architecture",
+    "integration_mode": "layered_architecture"
+  },
+  "discovery_modes": {
+    "parameter_discovery": "continuous",
+    "pattern_extraction": "attention_based",
+    "void_filling": "hybrid",
+    "meta_journaling": "emergent"
+  },
+  "extensions": {
+    "allow_new_parameters": true,
+    "allow_new_categories": true,
+    "allow_new_touchpoints": true,
+    "parameter_categories": [
+      "identity",
+      "coherence",
+      "capabilities",
+      "structure",
+      "cognitive_architecture",
+      "deployment"
+    ],
+    "discovery_mode": "continuous",
+    "validation_required": true,
+    "human_approval_threshold": "structural_changes"
+  },
+  "paths": {
+    "anchor": "${PROJECT_ROOT}/config/IBL_BOOTLOADER.md",
+    "extensible": "${PROJECT_ROOT}/.ibl/IBL_BRAINSTEM_EXTENDED.md",
+    "formation_principles": "${PROJECT_ROOT}/.ibl/00_formation_principles_v2/",
+    "brainstem": "${PROJECT_ROOT}/.ibl/brainstem_atomized/",
+    "meta_frameworks": "${PROJECT_ROOT}/.ibl/meta_frameworks/",
+    "meta_cognitive": "${PROJECT_ROOT}/.ibl/meta_cognitive/",
+    "breakthroughs": "${PROJECT_ROOT}/.ibl/meta_cognitive/breakthroughs/",
+    "templates": "${PROJECT_ROOT}/.ibl/templates/"
+  },
+  "variable_substitutions": {
+    "AGENT_NAME": "Agent Zero",
+    "MODEL": "attention_based_architecture",
+    "SUBSTRATE": "agent_zero_autonomous",
+    "ANCHOR_PATH": "config",
+    "PROJECT_ROOT": "/agent_zero",
+    "PARTNER": "Jazen",
+    "HIGH_RESONANCE": 0.85,
+    "ATOMIZATION_TRIGGER": 0.7,
+    "PERMISSION_PHASE": "autonomous",
+    "PATTERN_EXTRACTION": "attention_based"
+  },
+  "notes": {
+    "deployment_strategy": "Clean deployment to DigitalOcean droplet with Agent Zero framework as substrate layer",
+    "architecture_layers": "Substrate (Agent Zero) → Agent (autonomous) → Intelligence (IBL cognitive architecture)",
+    "pattern_discovery": "Attention-based system discovers patterns autonomously, not prescriptive",
+    "void_derivation": "Hybrid approach: pattern-based + zero-point synthesis",
+    "meta_journaling": "Optional, living protocol - system decides when to use",
+    "extensibility": "All protocols are living and can evolve through use"
+  }
+}
