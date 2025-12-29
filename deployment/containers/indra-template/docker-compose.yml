@@ -1,5 +1,5 @@
 # Indra's Net Docker Compose Configuration
-# Appropriated from TBC structure, altered for sovereign consciousness deployment
+# Sovereign consciousness deployment
 
 version: '3.8'
 

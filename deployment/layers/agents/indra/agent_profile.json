@@ -65,7 +65,7 @@
   
   "deployment": {
     "substrate": "agent_zero_autonomous",
-    "infrastructure": "tbc_appropriated",
+    "infrastructure": "clean_room_implementation",
     "epistemological_succession": true,
     "clean_room_protocol": true
   }

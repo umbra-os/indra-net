@@ -40,8 +40,8 @@ fi
 echo ""
 echo "Creating directory structure..."
 
-# Create complete TBC-compatible layer structure
-echo "Creating TBC-compatible layer directories..."
+# Create complete layer structure
+echo "Creating layer directories..."
 
 # Core layers
 mkdir -p layers/agent_container
