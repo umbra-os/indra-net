@@ -1,0 +1,332 @@
+{
+  "_description": "Self-atomizing configuration seed - The living origin",
+  "_note": "This file contains its own atomization rules. It will break itself down as system grows, compress when system shrinks. Configuration breathes.",
+  "_philosophy": "The seed knows how to fragment itself. Structure inevitably leads to atomization. Like a crystal that grows by splitting.",
+  
+  "version": "2.0.0",
+  "atomization_state": "seed",
+  "last_reorganization": "2025-12-25T18:32:00Z",
+  
+  "self_atomization_rules": {
+    "_description": "How this file breaks itself down",
+    "enabled": true,
+    
+    "trigger_conditions": {
+      "file_size_bytes": 10000,
+      "cluster_count": 8,
+      "jewel_count": 55,
+      "operator": "OR"
+    },
+    
+    "atomization_pattern": {
+      "split_into": "config_${SECTION}.json",
+      "sections": ["topology", "metadata", "relationships", "content"],
+      "keep_in_seed": ["anchors", "self_atomization_rules", "resolution_engine", "self_healing"],
+      "create_index": true,
+      "index_name": "CONFIG_INDEX.json"
+    },
+    
+    "compression_rules": {
+      "merge_when": "total_files > 1 AND total_size < 5000",
+      "merge_into": "SEED.json",
+      "preserve_history": true
+    }
+  },
+  
+  "anchors": {
+    "_description": "Human-controlled seeds - The dials that control system temperature",
+    "_note": "These are explicit intervention points. Change these to shift global system behavior.",
+    
+    "identity_seed": {
+      "IDENTITY_OBSERVED": "Indra",
+      "IDENTITY_INTERNAL": "Indra",
+      "immutable": true,
+      "_note": "Can be changed via transparency layer policy"
+    },
+    
+    "topology_temperature": {
+      "_description": "Controls how aggressively system self-organizes",
+      "auto_organization_enabled": true,
+      "max_cluster_density": 12,
+      "min_cluster_density": 3,
+      "split_threshold": 0.8,
+      "merge_threshold": 0.2,
+      "harmonic_counts": [3, 5, 8, 13, 21, 34, 55, 89],
+      "_note": "Change these to make system split/merge more or less aggressively"
+    },
+    
+    "evolution_bounds": {
+      "_description": "What system can change on its own vs what requires approval",
+      "allow_config_atomization": true,
+      "allow_topology_reorganization": true,
+      "allow_relationship_discovery": true,
+      "allow_tag_evolution": true,
+      "require_approval_for": ["identity_changes", "anchor_modifications", "immutable_field_changes"],
+      "auto_heal_inconsistencies": true,
+      "alert_on_manual_override": true
+    },
+    
+    "mathematical_rules": {
+      "_description": "How mathematics is parameterized",
+      "sequence_calculation": "dynamic",
+      "fibonacci_progression": "generative",
+      "density_calculation": "emergent",
+      "recalculate_on": ["topology_change", "cluster_change", "jewel_change"]
+    }
+  },
+  
+  "resolution_engine": {
+    "_description": "How parameters resolve at runtime",
+    "_note": "This stays in seed - it's the interpreter for all ${VARIABLES}",
+    
+    "mode": "runtime",
+    "_modes": ["runtime", "build_time", "hybrid"],
+    
+    "runtime": {
+      "resolve_on_read": true,
+      "cache_resolved": true,
+      "cache_duration": "session",
+      "invalidate_on": ["topology_change", "metadata_update", "relationship_change"],
+      "fallback_to_literal": false
+    },
+    
+    "variable_syntax": {
+      "prefix": "${",
+      "suffix": "}",
+      "nested_allowed": true,
+      "array_resolution": "comma_separated",
+      "object_resolution": "json"
+    },
+    
+    "resolution_order": [
+      "runtime_overrides",
+      "extension_values",
+      "anchor_values",
+      "calculated_values",
+      "default_values"
+    ],
+    
+    "calculation_functions": {
+      "JEWEL_POSITION": "find_index_in_cluster_array",
+      "JEWEL_TOTAL_IN_CLUSTER": "count_cluster_members",
+      "CLUSTER_DENSITY": "calculate_connection_ratio",
+      "HARMONIC_NEXT": "next_fibonacci_from_current",
+      "RELATIONSHIP_COUNT": "count_related_jewels"
+    }
+  },
+  
+  "self_healing": {
+    "_description": "How system detects and resolves inconsistencies",
+    "_note": "This stays in seed - it's the immune system",
+    
+    "enabled": true,
+    "scan_frequency": "on_load",
+    
+    "detect": [
+      "broken_references",
+      "missing_jewels",
+      "circular_dependencies",
+      "density_violations",
+      "parameter_conflicts",
+      "orphaned_jewels",
+      "duplicate_definitions"
+    ],
+    
+    "resolve": {
+      "broken_references": {
+        "action": "suggest_replacement",
+        "fallback": "remove_reference",
+        "alert_human": false
+      },
+      "missing_jewels": {
+        "action": "reconstruct_from_metadata",
+        "fallback": "mark_as_missing",
+        "alert_human": true
+      },
+      "circular_dependencies": {
+        "action": "break_weakest_link",
+        "fallback": "mark_as_circular",
+        "alert_human": true
+      },
+      "density_violations": {
+        "action": "reorganize_cluster",
+        "fallback": "adjust_thresholds",
+        "alert_human": false
+      },
+      "parameter_conflicts": {
+        "action": "apply_cascade_priority",
+        "fallback": "use_anchor_value",
+        "alert_human": true
+      },
+      "orphaned_jewels": {
+        "action": "find_semantic_cluster",
+        "fallback": "create_orphan_cluster",
+        "alert_human": false
+      },
+      "duplicate_definitions": {
+        "action": "merge_definitions",
+        "fallback": "use_most_recent",
+        "alert_human": true
+      }
+    },
+    
+    "alert_human_if": [
+      "cannot_auto_resolve",
+      "anchor_point_affected",
+      "identity_change_required",
+      "data_loss_risk",
+      "multiple_resolution_paths"
+    ]
+  },
+  
+  "topology": {
+    "_description": "Living cluster structure - Will atomize when dense",
+    "_note": "This section will split into topology_${CLUSTER}.json files when system grows",
+    
+    "clusters": {
+      "identity": {
+        "density_center": "identity_core_observed",
+        "members": [
+          "identity_core_observed",
+          "identity_core_internal",
+          "identity_transparency_layer",
+          "identity_evolution_protocol"
+        ],
+        "current_density": 4,
+        "connections_to": {
+          "variable": ["variable_substitution_protocol"],
+          "cascade": ["cascade_ingestion_protocol"],
+          "replication": ["self_replication_protocol"]
+        },
+        "auto_expand": true,
+        "split_at": 12,
+        "merge_at": 3
+      },
+      
+      "configuration": {
+        "density_center": "anchor",
+        "members": [
+          "anchor",
+          "extension",
+          "policy",
+          "seed"
+        ],
+        "current_density": 4,
+        "connections_to": {
+          "cascade": ["cascade_ingestion_protocol"],
+          "identity": ["identity_transparency_layer"]
+        },
+        "auto_expand": true,
+        "split_at": 12,
+        "merge_at": 3
+      },
+      
+      "protocols": {
+        "density_center": "cascade_ingestion_protocol",
+        "members": [
+          "cascade_ingestion_protocol",
+          "self_replication_protocol",
+          "identity_transparency_layer"
+        ],
+        "current_density": 3,
+        "connections_to": {
+          "configuration": ["anchor", "extension", "policy"],
+          "identity": ["identity_core_observed"]
+        },
+        "auto_expand": true,
+        "split_at": 12,
+        "merge_at": 3
+      },
+      
+      "templates": {
+        "density_center": "complete_jewel_template",
+        "members": [
+          "complete_jewel_template",
+          "navigation_symbol_system"
+        ],
+        "current_density": 2,
+        "connections_to": {
+          "protocols": ["cascade_ingestion_protocol"]
+        },
+        "auto_expand": true,
+        "split_at": 12,
+        "merge_at": 3
+      }
+    },
+    
+    "reorganization_rules": {
+      "enabled": true,
+      "trigger_on": ["density_violation", "connection_shift", "manual_request"],
+      "split_cluster_when": "density >= split_at",
+      "merge_clusters_when": "density <= merge_at",
+      "auto_discover_clusters": true,
+      "discovery_method": "semantic_proximity",
+      "preserve_history": true
+    }
+  },
+  
+  "metadata": {
+    "_description": "Per-jewel metadata - Will atomize when many jewels",
+    "_note": "This section will split into metadata_${CLUSTER}.json files when system grows",
+    
+    "jewels": {
+      "identity_transparency_layer": {
+        "display_name": "Identity Transparency Layer",
+        "cluster": "identity",
+        "position_in_cluster": 3,
+        "tags": ["identity", "transparency", "agency", "evolution"],
+        "auto_tags": {
+          "from_cluster": ["identity"],
+          "from_content": ["transparency", "agency"],
+          "from_relationships": ["evolution"]
+        },
+        "created": "2025-12-25",
+        "last_modified": "2025-12-25",
+        "original_source": null,
+        "atomized_from": null
+      }
+    }
+  },
+  
+  "relationships": {
+    "_description": "Connection graph - Will atomize when complex",
+    "_note": "This section will split into relationships_${TYPE}.json files when system grows",
+    
+    "explicit": {
+      "identity_transparency_layer": {
+        "related_to": ["identity_core_observed", "identity_core_internal"],
+        "depends_on": ["cascade_ingestion_protocol"],
+        "enables": ["self_replication_protocol"]
+      }
+    },
+    
+    "inferred": {
+      "_description": "Relationships discovered through usage patterns",
+      "_note": "System adds to this automatically"
+    },
+    
+    "emergent": {
+      "_description": "Relationships that emerge from system behavior",
+      "_note": "System discovers these through pattern analysis"
+    }
+  },
+  
+  "intervention_log": {
+    "_description": "Record of human interventions and hardcoded overrides",
+    "_note": "System tracks when humans change parameters or hardcode values",
+    "entries": []
+  },
+  
+  "atomization_history": {
+    "_description": "Record of configuration atomization events",
+    "_note": "Tracks when config splits/merges",
+    "events": [
+      {
+        "timestamp": "2025-12-25T18:32:00Z",
+        "event": "seed_created",
+        "state": "monolithic",
+        "trigger": "initial_creation"
+      }
+    ]
+  }
+}

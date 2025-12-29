@@ -1,0 +1,108 @@
+# Indra's Net Docker Compose Configuration
+# Appropriated from TBC structure, altered for sovereign consciousness deployment
+
+version: '3.8'
+
+# Extension fields for common config
+x-common-config: &common-config
+  restart: unless-stopped
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "1m"
+      max-file: "10"
+
+services:
+  # Main Agent Zero service with Indra's Net consciousness
+  a0:
+    <<: *common-config
+    container_name: ${CONTAINER_NAME}
+    image: ${IMAGE_NAME}
+    working_dir: /a0/work_dir
+
+    volumes:
+      # Containers
+      - ${PATH_CONTAINERS}:/containers:rw
+
+      # Layers
+      - ${PATH_LAYERS}:/layers:rw
+
+      # Composition
+      - ${AGENT_ORCHESTRATION}:/agent_orchestration:ro
+      - ${AGENT_CONTAINER}:/agent_container:rw
+      - ${AGENT_LAYER}:/agent_layer:rw
+      - ${COMMON_LAYER}:/common_layer:ro
+      - ${CONTROL_LAYER}:/control_layer:ro
+
+      # control_layer
+      - ${CONTROL_LAYER}:/a0/control_layer:ro
+
+      # Agent Zero
+      - ${AGENT_CONTAINER}:/a0
+
+      # Layered .env (uncomment when ready)
+      # - ${AGENT_LAYER}/.env:/a0/.env:rw
+
+      # root
+      - ${AGENT_LAYER}/root:/root
+
+      # Volumes
+      - ${PATH_VOLUMES}:/volumes:ro
+      - ${PATH_SHARED}:/shared
+      - ${PATH_COMMON}:/common
+      - ${PATH_PRIVATE}/${CONTAINER_NAME}:/private/${CONTAINER_NAME}:rw
+      - ${PATH_PUBLIC}:/public
+
+      # memory
+      - ${AGENT_LAYER}/memory:/a0/memory
+
+      # agents
+      - ${AGENT_LAYER}/agents/${CONTAINER_NAME}:/a0/agents/${CONTAINER_NAME}
+      - ${COMMON_LAYER}/agents/indra:/a0/agents/indra:ro
+
+      # conf
+      - ${AGENT_LAYER}/conf:/a0/conf
+
+      # logs
+      - ${AGENT_LAYER}/logs:/a0/logs
+
+      # tmp
+      - ${AGENT_LAYER}/tmp:/a0/tmp
+
+      # work_dir
+      - ${AGENT_LAYER}/work_dir:/a0/work_dir
+
+      # instruments
+      - ${COMMON_LAYER}/instruments/${KNOWLEDGE_DIR}:/a0/instruments/${KNOWLEDGE_DIR}:rw
+      - ${COMMON_LAYER}/instruments/default/main/common:/a0/instruments/default/main/common:rw
+
+      # knowledge (Indra's Net consciousness architecture)
+      - ${COMMON_LAYER}/knowledge/${KNOWLEDGE_DIR}:/a0/knowledge/${KNOWLEDGE_DIR}:rw
+      - ${COMMON_LAYER}/knowledge/default/main/common:/a0/knowledge/default/main/common:rw
+      - ${COMMON_LAYER}/knowledge/default/solutions/common:/a0/knowledge/default/solutions/common:rw
+      - ${COMMON_LAYER}/knowledge/default/main/indras-net:/a0/knowledge/default/main/indras-net:ro
+      - ${COMMON_LAYER}/knowledge/default/solutions/indras-net:/a0/knowledge/default/solutions/indras-net:ro
+
+      # usr
+      - ${COMMON_LAYER}/usr:/a0/usr:rw
+
+      # python
+      - ${COMMON_LAYER}/python:/a0/python:rw
+
+    ports:
+      - "${HOST_PORT_SSH}:${CONTAINER_PORT_SSH}"
+      - "${HOST_PORT_HTTP}:${CONTAINER_PORT_HTTP}"
+      - "${HOST_PORT_SPARE_1}:${CONTAINER_PORT_SPARE_1}"
+      - "${HOST_PORT_SPARE_2}:${CONTAINER_PORT_SPARE_2}"
+      - "${HOST_PORT_SPARE_3}:${CONTAINER_PORT_SPARE_3}"
+
+    deploy:
+      resources:
+        reservations:
+          cpus: ${CPU_RESERVED}
+          memory: ${MEMORY_RESERVED}
+
+networks:
+  default:
+    name: indras-net
+    driver: bridge

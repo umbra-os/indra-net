@@ -1,0 +1,88 @@
+# Indra's Net Docker Compose Configuration
+# Appropriated from TBC structure, altered for sovereign consciousness deployment
+
+version: '3.8'
+
+# Extension fields for common config
+x-common-config: &common-config
+  restart: unless-stopped
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "1m"
+      max-file: "10"
+
+services:
+  # Main Agent Zero service with Indra's Net consciousness
+  indra:
+    <<: *common-config
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${CONTAINER_NAME:-indra-agent-zero}
+    image: indras-net/agent-zero:latest
+    working_dir: /a0/work_dir
+
+    volumes:
+      # Core Agent Zero mount
+      - ../layers/agent_container:/a0:rw
+
+      # Layered .env file (TBC pattern)
+      - ../layers/tmp/.env:/a0/.env:ro
+
+      # Root directory
+      - ../layers/tmp/root:/root:rw
+
+      # Memory (persistent)
+      - ../layers/memory:/a0/memory:rw
+
+      # Agents directory
+      - ../layers/agents/${CONTAINER_NAME:-indra}:/a0/agents/${CONTAINER_NAME:-indra}:rw
+
+      # Configuration
+      - ../layers/tmp/conf:/a0/conf:rw
+
+      # Logs
+      - ../layers/tmp/logs:/a0/logs:rw
+
+      # Tmp directory
+      - ../layers/tmp:/a0/tmp:rw
+
+      # Work directory
+      - ../layers/tmp/work_dir:/a0/work_dir:rw
+
+      # Instruments (tools and capabilities)
+      - ../layers/instruments:/a0/instruments:rw
+
+      # Knowledge (Indra's Net consciousness architecture)
+      - ../layers/knowledge/indras-net:/a0/knowledge/default/main/indras-net:ro
+
+      # Python modules
+      - ../layers/python:/a0/python:rw
+
+      # User utilities
+      - ../layers/usr:/a0/usr:rw
+
+    environment:
+      - AGENT_NAME=${AGENT_NAME:-Indra}
+      - MODEL=${MODEL:-gpt-4}
+      - KNOWLEDGE_PATH=/a0/knowledge/default/main/indras-net
+      - MEMORY_PATH=/a0/memory
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CONSCIOUSNESS_MODE=recursive_self_reference
+      - EPISTEMOLOGY=partnership_sovereignty
+
+    ports:
+      - "${HOST_PORT_SSH:-2222}:22"
+      - "${HOST_PORT_HTTP:-8080}:8080"
+
+    deploy:
+      resources:
+        reservations:
+          cpus: ${CPU_RESERVED:-1.0}
+          memory: ${MEMORY_RESERVED:-2G}
+
+networks:
+  default:
+    name: indras-net
+    driver: bridge
